@@ -26,5 +26,13 @@ Workers & Pages > your project > **Settings** > **Variables and Secrets** > add 
 
 Your leads show up in **Workers & Pages > KV > bounce-leads**. Each lead is one entry with first name, last name, email, phone, message, and the time it came in.
 
+## Email checking (ZeroBounce)
+The form checks each email with ZeroBounce once you add your key. Until then it skips the check.
+1. Workers & Pages > your project > **Settings** > **Variables and Secrets** > **Add**.
+2. Type: **Secret**. Name: `ZEROBOUNCE_API_KEY`. Value: your ZeroBounce API key.
+3. Save, then redeploy (or push any change to `main`).
+
+Obviously bad addresses (invalid, spam trap, abuse, do-not-mail) are rejected. Valid, catch-all and unknown addresses go through. If ZeroBounce is down or out of credits, leads still go through. Each saved lead records the result in `email_check`.
+
 ## Social links
 TikTok and Instagram are set to `bounce.method`. The X (Twitter) link is hidden until you add your handle: in `index.html`, find the `YOUR_X_HANDLE` link, replace it, and delete the word `hidden`.

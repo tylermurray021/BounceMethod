@@ -3,6 +3,7 @@
 // Needs (set in Cloudflare, see README.md):
 //   TURNSTILE_SECRET  - secret key from your Turnstile widget (Pages > Settings > Variables and Secrets)
 //   LEADS             - a KV namespace binding where leads are stored (Pages > Settings > Bindings)
+//   ZEROBOUNCE_API_KEY - optional secret; when set, every email is checked with ZeroBounce first
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -58,11 +59,36 @@ export async function onRequestPost({ request, env }) {
 
   if (!verify.success) return json({ error: 'Captcha failed. Please try again.' }, 400);
 
+  // Email check with ZeroBounce (only runs once ZEROBOUNCE_API_KEY is set in Cloudflare).
+  // Bad addresses are rejected. If ZeroBounce is slow, down, or out of credits, we let the lead through
+  // so a vendor problem never costs you a real lead.
+  let emailStatus = 'not_checked';
+  if (env.ZEROBOUNCE_API_KEY) {
+    try {
+      const url =
+        'https://api.zerobounce.net/v2/validate' +
+        `?api_key=${encodeURIComponent(env.ZEROBOUNCE_API_KEY)}` +
+        `&email=${encodeURIComponent(lead.email)}` +
+        `&ip_address=${encodeURIComponent(request.headers.get('CF-Connecting-IP') || '')}` +
+        '&timeout=5';
+      const zb = await fetch(url, { signal: AbortSignal.timeout(8000) }).then((r) => r.json());
+      emailStatus = typeof zb.status === 'string' ? zb.status : 'unchecked';
+    } catch {
+      emailStatus = 'check_failed';
+    }
+    if (['invalid', 'spamtrap', 'abuse', 'do_not_mail'].includes(emailStatus)) {
+      return json({ error: "That email address doesn't look right. Please check it and try again." }, 400);
+    }
+  }
+
   // Save the lead.
   if (!env.LEADS) return json({ error: 'Form is not fully set up yet.' }, 500);
 
   const id = `lead:${new Date().toISOString()}:${crypto.randomUUID().slice(0, 8)}`;
-  await env.LEADS.put(id, JSON.stringify({ ...lead, received_at: new Date().toISOString() }));
+  await env.LEADS.put(
+    id,
+    JSON.stringify({ ...lead, email_check: emailStatus, received_at: new Date().toISOString() })
+  );
 
   return json({ ok: true });
 }
