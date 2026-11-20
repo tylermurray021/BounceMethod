@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bounce Method | Basketball Vertical Jump Program</title>
+<meta name="description" content="The complete basketball vertical jump training program. Build strength, develop explosiveness, and jump higher with a simple weekly plan.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Bounce Method | Jump Higher">
+<meta property="og:description" content="The complete basketball vertical jump training program for hoopers ages 12 to 22.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23ff4d1a' stroke-width='5'/%3E%3Cpath d='M12 32h40M32 12v40' stroke='%23ff4d1a' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<style>
+  :root{
+    --bg:#0b0b0c; --panel:#151517; --panel-2:#1c1c1f; --line:#2a2a2e;
+    --text:#f4f4f5; --muted:#a1a1aa; --orange:#ff4d1a; --orange-2:#ff7a45; --pink:#ff4fa3;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  [hidden]{display:none!important}
+  .wrap{width:min(1100px,100% - 32px);margin-inline:auto}
+  .display{font-family:Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+  .eyebrow{font-weight:800;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+
+  /* top bar */
+  .bar{position:sticky;top:0;z-index:20;background:rgba(11,11,12,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-family:Anton,Impact,sans-serif;font-size:1.5rem;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+  .logo span{color:var(--orange)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.5rem;border:0;border-radius:10px;background:var(--orange);color:#fff;font:800 .95rem Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+  .btn:hover{background:var(--orange-2);transform:translateY(-2px)}
+  .btn:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+  .btn.small{min-height:40px;padding:0 1.1rem;font-size:.8rem}
+  .btn.ghost{background:transparent;border:2px solid var(--line);color:var(--text)}
+  .btn.ghost:hover{border-color:var(--orange);background:transparent}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:72px 0 88px;isolation:isolate}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+    radial-gradient(900px 500px at 85% 10%,rgba(255,77,26,.28),transparent 60%),
+    radial-gradient(600px 400px at 0% 100%,rgba(255,79,163,.14),transparent 60%),var(--bg)}
+  .hero::after{content:"BOUNCE";position:absolute;right:-2%;bottom:-6%;z-index:-1;font-family:Anton,Impact,sans-serif;font-size:clamp(9rem,32vw,26rem);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.06);pointer-events:none}
+  .hero h1{font-size:clamp(3.6rem,13vw,8.5rem);margin:14px 0 18px}
+  .hero h1 em{font-style:normal;color:var(--orange);display:block;transform:skewX(-8deg);transform-origin:left}
+  .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:34ch;color:#d4d4d8;margin-bottom:28px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;list-style:none}
+  .chips li{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(21,21,23,.7);font-weight:600;font-size:.85rem}
+  .chips li b{color:var(--orange)}
+
+  section{padding:76px 0}
+  section h2{font-size:clamp(2.2rem,6vw,3.6rem);margin:10px 0 14px}
+  section .sub{color:var(--muted);max-width:56ch;margin-bottom:34px}
+
+  /* formula */
+  .formula{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+  .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;overflow:hidden}
+  .card .num{font-family:Anton,Impact,sans-serif;font-size:2.4rem;color:var(--orange);line-height:1}
+  .card h3{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-weight:400;font-size:1.5rem;margin:8px 0 6px}
+  .card p{color:var(--muted);font-size:.93rem}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange)}
+  .key{margin-top:22px;padding:18px 22px;border:1px solid var(--orange);border-radius:var(--radius);background:rgba(255,77,26,.08);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .key span{color:var(--orange)}
+
+  /* week */
+  .band{background:linear-gradient(180deg,var(--panel),var(--bg));border-block:1px solid var(--line)}
+  .week{display:grid;gap:10px;list-style:none}
+  .day{display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:16px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .day .d{font-family:Anton,Impact,sans-serif;font-size:1.6rem;text-align:center;background:var(--orange);color:#fff;border-radius:8px;padding:6px 0;transform:skewX(-8deg)}
+  .day.rest .d{background:#2d2d31;color:var(--muted)}
+  .day h3{font-size:1.02rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+  .day p{color:var(--muted);font-size:.88rem}
+  .tag{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:6px;border:1px solid var(--orange);color:var(--orange);white-space:nowrap}
+  .day.rest .tag,.day.low .tag{border-color:var(--line);color:var(--muted)}
+  .note{margin-top:18px;color:var(--muted);font-size:.9rem}
+
+  /* who */
+  .who{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .who .card::before{background:var(--pink)}
+  .who .card h3{font-size:1.3rem}
+
+  /* form */
+  .signup{position:relative;overflow:hidden}
+  .signup::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 20% 0%,rgba(255,77,26,.22),transparent 60%);z-index:-1}
+  .signup{isolation:isolate}
+  .signup .grid{display:grid;gap:38px;grid-template-columns:1fr}
+  @media(min-width:900px){.signup .grid{grid-template-columns:1fr 1.1fr;align-items:start}}
+  .perks{list-style:none;margin-top:20px;display:grid;gap:10px}
+  .perks li{padding-left:28px;position:relative;font-weight:600}
+  .perks li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border-radius:50%;border:3px solid var(--orange)}
+  form{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:16px}
+  .row{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:520px){.row{grid-template-columns:1fr 1fr}}
+  label{display:grid;gap:6px;font-weight:700;font-size:.85rem;letter-spacing:.04em}
+  label small{color:var(--muted);font-weight:400}
+  input,textarea{width:100%;background:#0e0e10;color:var(--text);border:1.5px solid var(--line);border-radius:10px;padding:13px 14px;font:400 1rem Inter,sans-serif}
+  input::placeholder,textarea::placeholder{color:#5c5c63}
+  input:focus,textarea:focus{border-color:var(--orange)}
+  textarea{min-height:110px;resize:vertical}
+  .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .fine{color:var(--muted);font-size:.8rem}
+  .status{min-height:1.4em;font-weight:700;font-size:.95rem}
+  .status.ok{color:#4ade80}
+  .status.err{color:#fb7185}
+  .btn[disabled]{opacity:.6;cursor:wait;transform:none}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:42px 0 54px;text-align:center}
+  .socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:18px 0 26px}
+  .socials a{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border:1px solid var(--line);border-radius:999px;background:var(--panel);text-decoration:none;font-weight:700;transition:border-color .15s,transform .15s}
+  .socials a:hover{border-color:var(--orange);transform:translateY(-2px)}
+  .socials svg{width:20px;height:20px;fill:currentColor}
+  footer p{color:var(--muted);font-size:.8rem;max-width:70ch;margin:8px auto 0}
+
+  @media(max-width:560px){
+    .day{grid-template-columns:62px 1fr}
+    .day .tag{grid-column:2;justify-self:start}
+    section{padding:58px 0}
+    .hero{padding:52px 0 70px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.socials a{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top">Bounce <span>Method</span></a>
+    <a class="btn small" href="#get-the-program">Get the program</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Basketball vertical jump program</p>
+      <h1 class="display">Jump <em>higher.</em></h1>
+      <p class="lead">Build strength. Develop explosiveness. Get the bounce that gets you above the rim.</p>
+      <div class="cta-row">
+        <a class="btn" href="#get-the-program">Get the program</a>
+        <a class="btn ghost" href="#how-it-works">See how it works</a>
+      </div>
+      <ul class="chips" aria-label="Program highlights">
+        <li><b>4</b> training days</li>
+        <li><b>1</b> recovery day</li>
+        <li><b>2</b> rest days</li>
+        <li>Made for hoopers <b>12 to 22</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FORMULA -->
+  <section id="how-it-works">
+    <div class="wrap">
+      <p class="eyebrow">The Bounce Formula</p>
+      <h2 class="display">Five things. One bigger vert.</h2>
+      <p class="sub">A big jump takes more than strong legs. Bounce Method trains all five qualities that decide how high you go.</p>
+      <div class="formula">
+        <article class="card"><div class="num">01</div><h3>Strength</h3><p>Build the force you push into the floor.</p></article>
+        <article class="card"><div class="num">02</div><h3>Power</h3><p>Turn that strength into fast, explosive jumps.</p></article>
+        <article class="card"><div class="num">03</div><h3>Elasticity</h3><p>Train your tendons to spring like a pogo stick.</p></article>
+        <article class="card"><div class="num">04</div><h3>Speed</h3><p>Get quicker into your takeoff.</p></article>
+        <article class="card"><div class="num">05</div><h3>Jump mechanics</h3><p>Clean approach, arm swing and takeoff.</p></article>
+      </div>
+      <p class="key"><span>The key:</span> train all five together.</p>
+    </div>
+  </section>
+
+  <!-- WEEK -->
+  <section class="band" id="the-week">
+    <div class="wrap">
+      <p class="eyebrow">Your week</p>
+      <h2 class="display">Every day has a purpose.</h2>
+      <p class="sub">A simple weekly plan you can repeat, built around your practices and games.</p>
+      <ol class="week">
+        <li class="day"><div class="d">Mon</div><div><h3>Force Day</h3><p>Lower body strength.</p></div><span class="tag">High intensity</span></li>
+        <li class="day low"><div class="d">Tue</div><div><h3>Tendon, Ankle + Balance</h3><p>Stay springy and durable.</p></div><span class="tag">Lower intensity</span></li>
+        <li class="day"><div class="d">Wed</div><div><h3>Elasticity + Speed</h3><p>Quick, reactive jumps and acceleration.</p></div><span class="tag">High intensity</span></li>
+        <li class="day rest"><div class="d">Thu</div><div><h3>Rest</h3><p>Recover and grow.</p></div><span class="tag">Recovery</span></li>
+        <li class="day"><div class="d">Fri</div><div><h3>Power + Max Jump</h3><p>Go all out and test your vert.</p></div><span class="tag">High intensity</span></li>
+        <li class="day low"><div class="d">Sat</div><div><h3>Durability Reset</h3><p>Light mobility and stability work.</p></div><span class="tag">Lower intensity</span></li>
+        <li class="day rest"><div class="d">Sun</div><div><h3>Rest</h3><p>Get ready for the next week.</p></div><span class="tag">Recovery</span></li>
+      </ol>
+      <p class="note">Playing a lot that week? Dial down the volume and keep the quality high.</p>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Who it's for</p>
+      <h2 class="display">Built for hoopers who want more.</h2>
+      <div class="who">
+        <article class="card"><h3>Ages 12 to 22</h3><p>Middle school, high school, AAU and college players.</p></article>
+        <article class="card"><h3>Want to dunk</h3><p>Or just get up higher for rebounds, blocks and finishes.</p></article>
+        <article class="card"><h3>All levels</h3><p>Pick easier variations if you're new to training, and get coaching when you need it.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="signup" id="get-the-program">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow">Get the program</p>
+        <h2 class="display">Ready to jump higher?</h2>
+        <p class="sub" style="margin-bottom:0">Fill this out and we'll get the Bounce Method program to you.</p>
+        <ul class="perks">
+          <li>Simple weekly plan you can start right away</li>
+          <li>Strength, power and jump work in one program</li>
+          <li>Track your progress as you go</li>
+        </ul>
+      </div>
+
+      <form id="lead-form" action="/api/lead" method="post" novalidate>
+        <div class="row">
+          <label for="first_name">First name
+            <input id="first_name" name="first_name" type="text" autocomplete="given-name" maxlength="60" required>
+          </label>
+          <label for="last_name">Last name
+            <input id="last_name" name="last_name" type="text" autocomplete="family-name" maxlength="60" required>
+          </label>
+        </div>
+        <label for="email">Email address
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="120" required>
+        </label>
+        <label for="phone">Phone
+          <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30" inputmode="tel" required>
+        </label>
+        <label for="message">Message <small>(optional)</small>
+          <textarea id="message" name="message" maxlength="1000" placeholder="Tell us your goals, your age, or any questions."></textarea>
+        </label>
+
+        <!-- Honeypot: real people never see or fill this. Bots usually do. -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Leave this field empty
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
+
+        <!-- Captcha (Cloudflare Turnstile). Replace data-sitekey with your own, see README. -->
+        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="dark"></div>
+
+        <p class="fine">Under 18? Please have a parent or guardian fill this out. We only use your info to contact you about Bounce Method.</p>
+        <button class="btn" type="submit" id="submit-btn">Send it</button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo" style="font-size:1.8rem">Bounce <span>Method</span></div>
+    <p style="margin-top:6px">Follow the journey</p>
+    <nav class="socials" aria-label="Social media">
+      <a href="https://www.tiktok.com/@bounce.method" target="_blank" rel="noopener" aria-label="Bounce Method on TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        TikTok <span style="color:var(--muted);font-weight:400">@bounce.method</span>
+      </a>
+      <a href="https://www.instagram.com/bounce.method/" target="_blank" rel="noopener" aria-label="Bounce Method on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+        Instagram <span style="color:var(--muted);font-weight:400">@bounce.method</span>
+      </a>
+      <!-- X / Twitter: remove the word "hidden" and put your handle in the link once you have it -->
+      <a hidden href="https://x.com/YOUR_X_HANDLE" target="_blank" rel="noopener" aria-label="Bounce Method on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.2 2.3h3.3l-7.2 8.2 8.5 11.2h-6.7l-5.2-6.8-6 6.8H1.6l7.7-8.8L1.2 2.3H8l4.7 6.2zm-1.2 17.4h1.8L7.1 4.2H5.1z"/></svg>
+        X
+      </a>
+    </nav>
+    <p>Results vary from athlete to athlete and depend on training experience, consistency, recovery and nutrition. Stop any exercise that causes sharp or lasting pain and check with a qualified coach or healthcare professional.</p>
+    <p>&copy; <span id="yr">2026</span> Bounce Method. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var form = document.getElementById('lead-form');
+  var btn = document.getElementById('submit-btn');
+  var statusEl = document.getElementById('status');
+
+  function say(msg, kind) {
+    statusEl.textContent = msg;
+    statusEl.className = 'status' + (kind ? ' ' + kind : '');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    say('', '');
+
+    var f = form.elements;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim());
+    var phoneDigits = f.phone.value.replace(/\D/g, '');
+
+    if (!f.first_name.value.trim() || !f.last_name.value.trim()) return say('Please enter your first and last name.', 'err');
+    if (!emailOk) return say('Please enter a valid email address.', 'err');
+    if (phoneDigits.length < 7) return say('Please enter a valid phone number.', 'err');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (res.ok) {
+          form.reset();
+          if (window.turnstile) window.turnstile.reset();
+          say("You're in! We'll be in touch soon.", 'ok');
+        } else {
+          say(res.d.error || 'Something went wrong. Please try again.', 'err');
+          if (window.turnstile) window.turnstile.reset();
+        }
+      })
+      .catch(function () { say('Could not send. Check your connection and try again.', 'err'); })
+      .then(function () { btn.disabled = false; btn.textContent = 'Send it'; });
+  });
+})();
+</script>
+</body>
+</html>
