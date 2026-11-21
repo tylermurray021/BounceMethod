@@ -62,8 +62,10 @@
   /* player photo (transparent PNG): pushed to the right edge of the screen so the rim hangs off it */
   .cover{justify-self:end;margin-right:calc((100vw - min(1100px,100vw - 32px)) / -2 - 70px)}
   .cover img{display:block;width:auto;height:min(680px,calc(100vh - 150px))}
+  /* phones: player goes on top, rim hanging off the right edge, headline right under him */
   @media(max-width:859px){
-    .cover{width:min(420px,96vw);margin-right:-90px}
+    .hero-grid{gap:4px}
+    .cover{order:-1;width:min(270px,66vw);margin-right:-52px}
     .cover img{width:100%;height:auto}
   }
 
@@ -135,7 +137,7 @@
     .day{grid-template-columns:62px 1fr}
     .day .tag{grid-column:2;justify-self:start}
     section{padding:58px 0}
-    .hero{padding:52px 0 70px}
+    .hero{padding:12px 0 56px}
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.socials a{transition:none}}
 </style>
