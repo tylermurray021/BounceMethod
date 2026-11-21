@@ -230,12 +230,12 @@
   <section class="signup" id="get-the-program">
     <div class="wrap grid">
       <div>
-        <p class="eyebrow">Learn more</p>
+        <p class="eyebrow">Stay updated</p>
         <h2 class="display">Ready to jump higher?</h2>
-        <p class="sub" style="margin-bottom:0">Fill this out and we'll reach out with detailed info about the Bounce Method program.</p>
+        <p class="sub" style="margin-bottom:0">Fill this out to stay updated on the program's release.</p>
         <ul class="perks">
-          <li>How the weekly plan works</li>
-          <li>What each training day looks like</li>
+          <li>Be the first to know when it launches</li>
+          <li>Updates on what's inside the program</li>
           <li>Answers to any questions you have</li>
         </ul>
       </div>
@@ -270,7 +270,7 @@
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAGJpvijtwD-wHPLd" data-theme="dark"></div>
 
         <p class="fine">Under 18? Please have a parent or guardian fill this out. We only use your info to contact you about Bounce Method.</p>
-        <button class="btn" type="submit" id="submit-btn">Get the details</button>
+        <button class="btn" type="submit" id="submit-btn">Keep me updated</button>
         <p class="status" id="status" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -336,14 +336,14 @@
         if (res.ok) {
           form.reset();
           if (window.turnstile) window.turnstile.reset();
-          say("Thanks! We'll reach out soon with all the details.", 'ok');
+          say("Thanks! We'll let you know when the program is released.", 'ok');
         } else {
           say(res.d.error || 'Something went wrong. Please try again.', 'err');
           if (window.turnstile) window.turnstile.reset();
         }
       })
       .catch(function () { say('Could not send. Check your connection and try again.', 'err'); })
-      .then(function () { btn.disabled = false; btn.textContent = 'Get the details'; });
+      .then(function () { btn.disabled = false; btn.textContent = 'Keep me updated'; });
   });
 })();
 </script>
