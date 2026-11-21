@@ -45,7 +45,7 @@
   .btn.ghost:hover{border-color:var(--orange);background:transparent}
 
   /* hero */
-  .hero{position:relative;overflow:hidden;padding:40px 0 64px;isolation:isolate}
+  .hero{position:relative;overflow:hidden;overflow:clip;padding:40px 0 64px;isolation:isolate}
   .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
     radial-gradient(900px 500px at 85% 10%,rgba(255,77,26,.28),transparent 60%),
     radial-gradient(600px 400px at 0% 100%,rgba(255,79,163,.14),transparent 60%),var(--bg)}
