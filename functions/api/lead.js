@@ -17,7 +17,26 @@ const clean = (v, max) =>
     .trim()
     .slice(0, max);
 
-export async function onRequestPost({ request, env }) {
+// Google Form that feeds the "Form Responses 1" tab of the Bounce Method Leads sheet.
+// The form has 2 pages (First name, then Email/Phone/Message), so pageHistory lists both.
+// If the form's questions change, these entry numbers must be updated to match.
+const GOOGLE_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSe2_2OUP_DWgvD3eAdp4dT7JYXwx9IzTzlkO3j3N1rMwBvVOA/formResponse';
+
+const sendToGoogleSheet = (lead) =>
+  fetch(GOOGLE_FORM_URL, {
+    method: 'POST',
+    body: new URLSearchParams({
+      'entry.1373570091': `${lead.first_name} ${lead.last_name}`.trim(), // "First name" (full name)
+      'entry.164044029': lead.email, // "Email"
+      'entry.1762524709': lead.phone, // "Phone #"
+      'entry.289211120': lead.message, // "Message"
+      pageHistory: '0,1',
+    }),
+    signal: AbortSignal.timeout(8000),
+  }).catch(() => {}); // the lead is already saved in KV, so a Google hiccup never loses it
+
+export async function onRequestPost({ request, env, waitUntil }) {
   let form;
   try {
     form = await request.formData();
@@ -89,6 +108,9 @@ export async function onRequestPost({ request, env }) {
     id,
     JSON.stringify({ ...lead, email_check: emailStatus, received_at: new Date().toISOString() })
   );
+
+  // Also copy it into the Google Sheet (runs after the visitor gets their "You're in").
+  waitUntil(sendToGoogleSheet(lead));
 
   return json({ ok: true });
 }
