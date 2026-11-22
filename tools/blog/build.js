@@ -136,7 +136,7 @@ ${footer}
 const cta = `    <aside class="cta" aria-labelledby="cta-title">
       <p class="eyebrow">Bounce Method</p>
       <h2 class="display" id="cta-title">Want the full plan?</h2>
-      <p>Bounce Method is a complete vertical jump program for hoopers ages 12 to 22. Sign up to be the first to know when it launches.</p>
+      <p>Bounce Method is a complete vertical jump program for athletes. Sign up to be the first to know when it launches.</p>
       <a class="btn" href="/#get-the-program">Get the program</a>
     </aside>`;
 
@@ -145,7 +145,7 @@ const posts = [{
   slug: 'how-to-jump-higher-for-basketball',
   title: 'How to Jump Higher for Basketball: The Complete Guide',
   h1: 'How to jump higher for basketball',
-  desc: 'The 5 things that decide your vertical, a simple weekly plan, how long it takes, and the mistakes that keep hoopers stuck. A complete guide for young players.',
+  desc: 'The 5 things that decide your vertical, a simple weekly plan, how long it takes, and the mistakes that keep hoopers stuck. A complete guide for athletes.',
   card: 'The 5 things that decide your vertical, a simple week you can follow, how long it takes, and the 6 mistakes that keep most hoopers stuck.',
   eyebrow: 'Vertical jump training',
   bodyFile: 'how-to-jump-higher-for-basketball.html',
@@ -180,7 +180,7 @@ for (const p of posts) {
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a></nav>
       <p class="eyebrow">${p.eyebrow}</p>
       <h1 class="display">${p.h1}</h1>
-      <p class="meta">By Bounce Method · <time datetime="${p.date}">${p.dateText}</time> · ${p.read}</p>
+      <p class="meta">By Bounce Method · ${p.read}</p>
     </div>
   </header>
   <div class="narrow">
@@ -195,7 +195,7 @@ ${cta}
 }
 
 const list = posts.map(q => `      <li class="post">
-        <p class="meta"><time datetime="${q.date}">${q.dateText}</time> · ${q.read}</p>
+        <p class="meta">${q.read}</p>
         <h2 class="display"><a href="/blog/${q.slug}/">${q.h1}</a></h2>
         <p>${q.card}</p>
       </li>`).join('\n');
