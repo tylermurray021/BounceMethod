@@ -94,6 +94,7 @@ const css = `
   .yt:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
   .video figcaption{margin-top:12px;font-size:.92rem;color:var(--muted);text-align:center;line-height:1.5}
   .video figcaption strong{color:var(--text)}
+  .video figcaption .aspire{color:var(--orange);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}`;
 
 function page({ title, desc, url, ogType, jsonld, current, body }) {
