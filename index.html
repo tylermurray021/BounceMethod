@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WWXHVGGR');</script>
+<!-- Google Tag Manager (delayed: loads on the visitor's first scroll/tap/keypress, or 4s after the page finishes loading, so it doesn't slow the first paint) -->
+<script>(function(w,d,i){var done=false,ev=['scroll','pointerdown','touchstart','keydown','mousemove'];
+function load(){if(done)return;done=true;ev.forEach(function(e){w.removeEventListener(e,load,true)});
+w.dataLayer=w.dataLayer||[];w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);}
+ev.forEach(function(e){w.addEventListener(e,load,{capture:true,passive:true,once:true})});
+w.addEventListener('load',function(){setTimeout(load,4000)});})(window,document,'GTM-WWXHVGGR');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bounce Method | Basketball Vertical Jump Program</title>
@@ -14,7 +19,6 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23ff4d1a' stroke-width='5'/%3E%3Cpath d='M12 32h40M32 12v40' stroke='%23ff4d1a' stroke-width='4'/%3E%3C/svg%3E">
 <link rel="preload" href="/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   /* fonts are self-hosted (no render-blocking Google Fonts request).
      Inter uses "optional": if it is not ready the first instant the page draws, the stand-in is kept for that visit, so text never reflows.
