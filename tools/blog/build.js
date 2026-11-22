@@ -149,7 +149,7 @@ const posts = [{
   card: 'The 5 things that decide your vertical, a simple week you can follow, how long it takes, and the 6 mistakes that keep most hoopers stuck.',
   eyebrow: 'Vertical jump training',
   bodyFile: 'how-to-jump-higher-for-basketball.html',
-  date: '2026-11-22', dateText: 'November 22, 2026', read: '9 min read',
+  date: '2026-11-22', dateText: 'November 22, 2026', read: '10 min read',
 }];
 
 for (const p of posts) {
