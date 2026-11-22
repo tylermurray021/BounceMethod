@@ -13,32 +13,40 @@
 <meta property="og:description" content="The complete basketball vertical jump training program for hoopers ages 12 to 22.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23ff4d1a' stroke-width='5'/%3E%3Cpath d='M12 32h40M32 12v40' stroke='%23ff4d1a' stroke-width='4'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<link rel="preload" href="/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* fonts are self-hosted (no render-blocking Google Fonts request).
+     Inter uses "optional": if it is not ready the first instant the page draws, the stand-in is kept for that visit, so text never reflows.
+     Anton uses "swap" so the headline always gets its real font; its lines have a fixed height, so swapping it does not move the page. */
+  @font-face{font-family:Anton;src:url(/fonts/anton.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:Inter;src:url(/fonts/inter.woff2) format("woff2");font-weight:400 800;font-style:normal;font-display:optional}
+  /* size-matched stand-ins shown until the real fonts load, so the page doesn't jump when they swap in */
+  @font-face{font-family:"Anton Fallback";src:local("Arial Bold"),local("Arial-BoldMT"),local("Liberation Sans Bold"),local("Roboto Bold"),local("Roboto-Bold");size-adjust:69.92%;ascent-override:168.24%;descent-override:47.07%;line-gap-override:0%}
+  @font-face{font-family:"Inter Fallback";src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Roboto"),local("Roboto-Regular");size-adjust:106.76%;ascent-override:90.74%;descent-override:22.59%;line-gap-override:0%}
   :root{
     --bg:#0b0b0c; --panel:#151517; --panel-2:#1c1c1f; --line:#2a2a2e;
     --text:#f4f4f5; --muted:#a1a1aa; --orange:#ff4d1a; --orange-2:#ff7a45; --pink:#ff4fa3;
+    /* button orange: dark enough for white button text to pass contrast (4.6:1) */
+    --btn:#d93a0b; --btn-hover:#bf3209;
     --radius:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--text);font-family:Inter,"Inter Fallback",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
   a{color:inherit}
   [hidden]{display:none!important}
   .wrap{width:min(1100px,100% - 32px);margin-inline:auto}
-  .display{font-family:Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+  .display{font-family:Anton,"Anton Fallback",Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
   .eyebrow{font-weight:800;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
 
   /* top bar */
   .bar{position:sticky;top:0;z-index:20;background:rgba(11,11,12,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-family:Anton,Impact,sans-serif;font-size:1.5rem;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+  .logo{white-space:nowrap;font-family:Anton,"Anton Fallback",Impact,sans-serif;font-size:1.5rem;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
   .logo span{color:var(--orange)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.5rem;border:0;border-radius:10px;background:var(--orange);color:#fff;font:800 .95rem Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
-  .btn:hover{background:var(--orange-2);transform:translateY(-2px)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.5rem;border:0;border-radius:10px;background:var(--btn);color:#fff;font:800 .95rem Inter,"Inter Fallback",sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+  .btn:hover{background:var(--btn-hover);transform:translateY(-2px)}
   .btn:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
   .btn.small{min-height:40px;padding:0 1.1rem;font-size:.8rem}
   .btn.ghost{background:transparent;border:2px solid var(--line);color:var(--text)}
@@ -49,7 +57,7 @@
   .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
     radial-gradient(900px 500px at 85% 10%,rgba(255,77,26,.28),transparent 60%),
     radial-gradient(600px 400px at 0% 100%,rgba(255,79,163,.14),transparent 60%),var(--bg)}
-  .hero::after{content:"BOUNCE";position:absolute;right:-2%;bottom:-6%;z-index:-1;font-family:Anton,Impact,sans-serif;font-size:clamp(9rem,32vw,26rem);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.06);pointer-events:none}
+  .hero::after{content:"BOUNCE";position:absolute;right:-2%;bottom:-6%;z-index:-1;font-family:Anton,"Anton Fallback",Impact,sans-serif;font-size:clamp(9rem,32vw,26rem);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.06);pointer-events:none}
   .hero h1{font-size:clamp(3.6rem,13vw,8.5rem);margin:14px 0 18px}
   .hero h1 em{font-style:normal;color:var(--orange);display:block;transform:skewX(-8deg);transform-origin:left}
   .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:34ch;color:#d4d4d8;margin-bottom:28px}
@@ -79,8 +87,8 @@
   /* formula */
   .formula{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
   .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;overflow:hidden}
-  .card .num{font-family:Anton,Impact,sans-serif;font-size:2.4rem;color:var(--orange);line-height:1}
-  .card h3{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-weight:400;font-size:1.5rem;margin:8px 0 6px}
+  .card .num{font-family:Anton,"Anton Fallback",Impact,sans-serif;font-size:2.4rem;color:var(--orange);line-height:1}
+  .card h3{font-family:Anton,"Anton Fallback",Impact,sans-serif;text-transform:uppercase;font-weight:400;font-size:1.5rem;margin:8px 0 6px}
   .card p{color:var(--muted);font-size:.93rem}
   .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange)}
   .key{margin-top:22px;padding:18px 22px;border:1px solid var(--orange);border-radius:var(--radius);background:rgba(255,77,26,.08);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
@@ -90,7 +98,7 @@
   .band{background:linear-gradient(180deg,var(--panel),var(--bg));border-block:1px solid var(--line)}
   .week{display:grid;gap:10px;list-style:none}
   .day{display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:16px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-  .day .d{font-family:Anton,Impact,sans-serif;font-size:1.6rem;text-align:center;background:var(--orange);color:#fff;border-radius:8px;padding:6px 0;transform:skewX(-8deg)}
+  .day .d{font-family:Anton,"Anton Fallback",Impact,sans-serif;font-size:1.6rem;text-align:center;background:var(--orange);color:#fff;border-radius:8px;padding:6px 0;transform:skewX(-8deg)}
   .day.rest .d{background:#2d2d31;color:var(--muted)}
   .day h3{font-size:1.02rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
   .day p{color:var(--muted);font-size:.88rem}
@@ -117,7 +125,7 @@
   @media(min-width:520px){.row{grid-template-columns:1fr 1fr}}
   label{display:grid;gap:6px;font-weight:700;font-size:.85rem;letter-spacing:.04em}
   label small{color:var(--muted);font-weight:400}
-  input,textarea{width:100%;background:#0e0e10;color:var(--text);border:1.5px solid var(--line);border-radius:10px;padding:13px 14px;font:400 1rem Inter,sans-serif}
+  input,textarea{width:100%;background:#0e0e10;color:var(--text);border:1.5px solid var(--line);border-radius:10px;padding:13px 14px;font:400 1rem Inter,"Inter Fallback",sans-serif}
   input::placeholder,textarea::placeholder{color:#5c5c63}
   input:focus,textarea:focus{border-color:var(--orange)}
   textarea{min-height:110px;resize:vertical}
@@ -314,6 +322,27 @@
   var form = document.getElementById('lead-form');
   var btn = document.getElementById('submit-btn');
   var statusEl = document.getElementById('status');
+
+  // Load the Turnstile captcha only when the visitor gets near the form,
+  // instead of on every page load. It renders into .cf-turnstile by itself.
+  var turnstileLoaded = false;
+  function loadTurnstile() {
+    if (turnstileLoaded) return;
+    turnstileLoaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { loadTurnstile(); io.disconnect(); }
+    }, { rootMargin: '800px 0px' });
+    io.observe(form);
+  } else {
+    loadTurnstile();
+  }
+  form.addEventListener('focusin', loadTurnstile);
 
   function say(msg, kind) {
     statusEl.textContent = msg;
