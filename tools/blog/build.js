@@ -7,7 +7,7 @@ const gtm = home.match(/<!-- Google Tag Manager \(delayed[\s\S]*?<!-- End Google
 const gtmNoscript = home.match(/<!-- Google Tag Manager \(noscript\) -->[\s\S]*?<!-- End Google Tag Manager \(noscript\) -->/)[0];
 const footer = home.match(/<footer>[\s\S]*?<\/footer>/)[0]
   .replace('<p style="margin-top:6px">Follow the journey</p>',
-    '<p style="margin-top:6px">Follow the journey</p>\n    <p class="footlinks"><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/#get-the-program">Get the program</a></p>')
+    '<p style="margin-top:6px">Follow the journey</p>\n    <p class="footlinks"><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/#get-the-program"><span class="long">Get the program</span><span class="short">Sign up</span></a></p>')
   .replace('<span id="yr">2026</span>', '2026');
 const icon = home.match(/<link rel="icon"[^>]*>/)[0];
 const BASE = 'https://bouncemethod.net';
@@ -32,9 +32,12 @@ const css = `
   .logo{white-space:nowrap;font-family:Anton,"Anton Fallback",Impact,sans-serif;font-size:1.5rem;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
   .logo span{color:var(--orange)}
   .bar nav{display:flex;align-items:center;gap:18px}
-  .navlink{font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+  .navlink{font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--text)}
   .navlink:hover,.navlink[aria-current]{color:var(--text)}
-  @media(max-width:420px){.navlink{display:none}}
+  /* phones: shrink the header a little so Blog fits next to the button */
+  @media(max-width:480px){.bar nav{gap:12px}.bar .logo{font-size:1.3rem}.navlink{font-size:.78rem}.bar .btn.small{padding:0 .8rem;font-size:.72rem}}
+  .btn .short{display:none}
+  @media(max-width:359px){.bar .btn .long{display:none}.bar .btn .short{display:inline}}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.5rem;border:0;border-radius:10px;background:var(--btn);color:#fff;font:800 .95rem Inter,"Inter Fallback",sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
   .btn:hover{background:var(--btn-hover);transform:translateY(-2px)}
   .btn.small{min-height:40px;padding:0 1.1rem;font-size:.8rem;white-space:nowrap}
@@ -128,7 +131,7 @@ ${gtmNoscript}
     <a class="logo" href="/">Bounce <span>Method</span></a>
     <nav aria-label="Main">
       <a class="navlink" href="/blog/"${current === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
-      <a class="btn small" href="/#get-the-program">Get the program</a>
+      <a class="btn small" href="/#get-the-program"><span class="long">Get the program</span><span class="short">Sign up</span></a>
     </nav>
   </div>
 </header>
