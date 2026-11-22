@@ -5,6 +5,11 @@
 ## Site
 
 - [Home](https://bouncemethod.net/): Program overview, the five-part Bounce Formula, the weekly schedule, who it's for, and the sign-up form for release updates.
+- [Blog](https://bouncemethod.net/blog/): Vertical jump training articles for basketball players.
+
+## Articles
+
+- [How to jump higher for basketball](https://bouncemethod.net/blog/how-to-jump-higher-for-basketball/): The 5 qualities that decide your vertical, a sample week, how long it takes, common mistakes, and how to measure your vertical.
 
 ## Program overview
 
