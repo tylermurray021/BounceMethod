@@ -37,7 +37,7 @@ const css = `
   /* phones: shrink the header a little so Blog fits next to the button */
   @media(max-width:480px){.bar nav{gap:12px}.bar .logo{font-size:1.3rem}.navlink{font-size:.78rem}.bar .btn.small{padding:0 .8rem;font-size:.72rem}}
   .btn .short{display:none}
-  @media(max-width:359px){.bar .btn .long{display:none}.bar .btn .short{display:inline}}
+  @media(max-width:374px){.bar .btn .long{display:none}.bar .btn .short{display:inline}}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.5rem;border:0;border-radius:10px;background:var(--btn);color:#fff;font:800 .95rem Inter,"Inter Fallback",sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
   .btn:hover{background:var(--btn-hover);transform:translateY(-2px)}
   .btn.small{min-height:40px;padding:0 1.1rem;font-size:.8rem;white-space:nowrap}
